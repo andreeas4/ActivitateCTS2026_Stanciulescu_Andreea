@@ -9,20 +9,24 @@ import java.io.FileNotFoundException;
 import java.util.List;
 
 
-
 public class Program {
 
-	public static void main(String[] args) {
-		List<Aplicant> listaAplicanti;
-		try {
-			AplicantiReader ra=new EmployersReader();
-			listaAplicanti = ra.readAplicanti("angajati.txt");
-			for(Aplicant aplicant:listaAplicanti)
-				System.out.println(aplicant.toString());
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+    public static void main(String[] args) {
+        List<Aplicant> listaAplicanti;
+        Aplicant.setPragPunctaj(85);
+        try {
+            AplicantiReader ra = new EmployersReader("angajati.txt");
+            listaAplicanti = ra.readAplicanti();
+            for (Aplicant aplicant : listaAplicanti) {
+                System.out.println(aplicant.toString());
+                aplicant.afisareVenit();
+                aplicant.afisareStatut();
+            }
+
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
 
 }
