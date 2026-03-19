@@ -1,0 +1,3 @@
+singleton registry returneaza acelasi obiect de 1000 de ori/
+fata de
+factory method cand returneaza 1000 de obiecte diferite de acelasi tip

@@ -9,7 +9,11 @@ public class SingletonFactory {
 
     private static SingletonFactory instanta=null;
 
-    public Angajat getAngajat(TipAngajat tip,String nume,double salariu,int vechime)
+    private SingletonFactory() {
+    }
+
+
+    public Angajat getAngajat(TipAngajat tip, String nume, double salariu, int vechime)
     {
         switch (tip){
             case tip.ASISTENT ->
