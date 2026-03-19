@@ -15,7 +15,7 @@ public class Program {
         List<Aplicant> listaAplicanti;
         Aplicant.setPragPunctaj(85);
         try {
-            AplicantiReader ra = new EmployersReader("angajati.txt");
+            AplicantiReader ra = new EmployersReader("s2/angajati.txt");
             listaAplicanti = ra.readAplicanti();
             for (Aplicant aplicant : listaAplicanti) {
                 System.out.println(aplicant.toString());
