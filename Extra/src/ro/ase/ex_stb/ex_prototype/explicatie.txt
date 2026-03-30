@@ -1,0 +1,1 @@
+am implementat functia pentru copiere in interfata pt a putea folosi o pt toate mijloaceel de transport in comun

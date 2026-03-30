@@ -1,9 +1,9 @@
 package ro.ase.ex_spital.factory;
 
-import ro.ase.ex_spital.personal.Angajat;
-import ro.ase.ex_spital.personal.Asistent;
-import ro.ase.ex_spital.personal.Brancardier;
-import ro.ase.ex_spital.personal.Medic;
+import ro.ase.ex_spital.clase.personal.Angajat;
+import ro.ase.ex_spital.clase.personal.Asistent;
+import ro.ase.ex_spital.clase.personal.Brancardier;
+import ro.ase.ex_spital.clase.personal.Medic;
 
 public class SingletonFactory {
 

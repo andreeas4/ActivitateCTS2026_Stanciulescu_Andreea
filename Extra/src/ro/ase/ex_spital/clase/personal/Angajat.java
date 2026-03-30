@@ -1,4 +1,4 @@
-package ro.ase.ex_spital.personal;
+package ro.ase.ex_spital.clase.personal;
 
 public abstract class Angajat {
     public String nume;
