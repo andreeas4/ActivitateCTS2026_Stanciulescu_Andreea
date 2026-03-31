@@ -3,6 +3,9 @@ package ro.ase;
 import ro.ase.ex_stb.ex_builder.builder.BuilderAutobuzLinie;
 import ro.ase.ex_stb.ex_builder.clase.AutobuzLinie;
 import ro.ase.ex_stb.ex_factory.mijloace_de_transport.Autobuz;
+import ro.ase.model_test.magazin_it.clase.AtelierAsamblare;
+import ro.ase.model_test.magazin_it.clase.builder.BuilderConfig;
+import ro.ase.model_test.magazin_it.clase.pc_uri.ConfiguratiePC;
 import ro.ase.model_test.pizzerie.clase.bucatarie.BucatarieManager;
 import ro.ase.model_test.pizzerie.clase.bucatarie.Comanda;
 import ro.ase.model_test.pizzerie.clase.factory_method.FabricaPaste;
@@ -46,39 +49,64 @@ public class Main {
 //        AutobuzLinie a=b.setSofer("Ion").setModelAutobuz("Mercedes").build();
 //        System.out.println(a);
         //testez W1
-        FabricaPreparate f=new FabricaPizza();
-        IPreparat i =f.creeazaPreparat("Margherita",30.0,50.0);
-        System.out.println(i.getDetalii());
-        i.gătire();
+//        FabricaPreparate f=new FabricaPizza();
+//        IPreparat i =f.creeazaPreparat("Margherita",30.0,50.0);
+//        System.out.println(i.getDetalii());
+//        i.gătire();
+//
+//        FabricaPreparate f2=new FabricaPaste();
+//        IPreparat paste=f2.creeazaPreparat("Carbonara",40.0,60.90);
+//        System.out.println(paste.getDetalii());
+//        paste.gătire();
+//
+//        //testez W2
+//        List<IPreparat>preparate=new ArrayList<>();
+//        preparate.add(paste);
+//        preparate.add(i);
+//        Comanda c=new Comanda(preparate);
+//        List <Comanda>comenzi=new ArrayList<>();
+//        comenzi.add(c);
+//
+//        BucatarieManager b =BucatarieManager.getInstance(1,comenzi);
+//        System.out.println(b);
+//
+//        BucatarieManager o=BucatarieManager.getInstance(2,comenzi);
+//        System.out.println(o);
+//
+//
+//        IPreparat paste2=f2.creeazaPreparat("Bolognese",40.0,60.90);
+//        o.adaugaPreparat(paste2,1);
+//
+//        System.out.println(o);
 
-        FabricaPreparate f2=new FabricaPaste();
-        IPreparat paste=f2.creeazaPreparat("Carbonara",40.0,60.90);
-        System.out.println(paste.getDetalii());
-        paste.gătire();
+//          test Z1
+        ConfiguratiePC pcGaming = new BuilderConfig()
+                .setProcesor("Intel i9")
+                .setMemorieRAM(32)
+                .setPlacaVideo("RTX 4090")
+                .setRacireLichida(true)
+                .setIluminareRGB(false)
+                .build();
 
-        //testez W2
-        List<IPreparat>preparate=new ArrayList<>();
-        preparate.add(paste);
-        preparate.add(i);
-        Comanda c=new Comanda(preparate);
-        List <Comanda>comenzi=new ArrayList<>();
-        comenzi.add(c);
+        ConfiguratiePC pcOffice = new BuilderConfig()
+                .setProcesor("AMD Ryzen 5")
+                .setMemorieRAM(16)
+                // restul rămân pe false/default automat
+                .build();
 
-        BucatarieManager b =BucatarieManager.getInstance(1,comenzi);
-        System.out.println(b);
+        System.out.println(pcGaming);
+        System.out.println(pcOffice);
 
-        BucatarieManager o=BucatarieManager.getInstance(2,comenzi);
-        System.out.println(o);
+        //test z2 -singleton
 
+        AtelierAsamblare atelierAsamblare=AtelierAsamblare.getInstanta();
+        atelierAsamblare.adaugaPc(pcGaming);
+        atelierAsamblare.adaugaPc(pcOffice);
+        System.out.println(atelierAsamblare);
 
-        IPreparat paste2=f2.creeazaPreparat("Bolognese",40.0,60.90);
-        o.adaugaPreparat(paste2,1);
-
-        System.out.println(o);
-
-
-
-
+        AtelierAsamblare altAtelier = AtelierAsamblare.getInstanta();
+        System.out.println("Sunt aceleași instanțe? " + (atelierAsamblare == altAtelier));
+        System.out.println(altAtelier.toString());
 
     }
 }
