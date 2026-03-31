@@ -1,0 +1,6 @@
+Se dorește dezvoltarea unei aplicații pentru o pizzerie digitală.
+ Sistemul trebuie să permită gestionarea comenzilor de preparate și să asigure o evidență clară a acestora.
+ Sistemul trebuie să permită crearea diferitelor tipuri de preparate: Pizza, Paste, Salată.
+ Acestea vor implementa interfața IPreparat. Fiecare preparat are un nume, un timp de gătire și un preț.
+  Crearea preparatelor trebuie separată de logica principală a aplicației.
+

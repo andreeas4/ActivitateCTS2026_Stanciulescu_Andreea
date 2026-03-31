@@ -1,0 +1,4 @@
+Pizzeria are un singur Cuptor Central. Sistemul va avea o componentă BucatarieManager care gestionează
+comenzile.
+Aceasta trebuie să fie unic accesibilă în toată aplicația și să nu permită instanțierea multiplă.
+Managerul permite adăugarea preparatelor într-o comandă, afișarea lor și calcularea prețului total.

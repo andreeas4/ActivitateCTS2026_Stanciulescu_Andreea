@@ -3,6 +3,16 @@ package ro.ase;
 import ro.ase.ex_stb.ex_builder.builder.BuilderAutobuzLinie;
 import ro.ase.ex_stb.ex_builder.clase.AutobuzLinie;
 import ro.ase.ex_stb.ex_factory.mijloace_de_transport.Autobuz;
+import ro.ase.model_test.pizzerie.clase.bucatarie.BucatarieManager;
+import ro.ase.model_test.pizzerie.clase.bucatarie.Comanda;
+import ro.ase.model_test.pizzerie.clase.factory_method.FabricaPaste;
+import ro.ase.model_test.pizzerie.clase.factory_method.FabricaPizza;
+import ro.ase.model_test.pizzerie.clase.factory_method.FabricaPreparate;
+import ro.ase.model_test.pizzerie.clase.preparate.IPreparat;
+import ro.ase.model_test.pizzerie.clase.preparate.Pizza;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -35,6 +45,38 @@ public class Main {
 //        BuilderAutobuzLinie b=new BuilderAutobuzLinie();
 //        AutobuzLinie a=b.setSofer("Ion").setModelAutobuz("Mercedes").build();
 //        System.out.println(a);
+        //testez W1
+        FabricaPreparate f=new FabricaPizza();
+        IPreparat i =f.creeazaPreparat("Margherita",30.0,50.0);
+        System.out.println(i.getDetalii());
+        i.gătire();
+
+        FabricaPreparate f2=new FabricaPaste();
+        IPreparat paste=f2.creeazaPreparat("Carbonara",40.0,60.90);
+        System.out.println(paste.getDetalii());
+        paste.gătire();
+
+        //testez W2
+        List<IPreparat>preparate=new ArrayList<>();
+        preparate.add(paste);
+        preparate.add(i);
+        Comanda c=new Comanda(preparate);
+        List <Comanda>comenzi=new ArrayList<>();
+        comenzi.add(c);
+
+        BucatarieManager b =BucatarieManager.getInstance(1,comenzi);
+        System.out.println(b);
+
+        BucatarieManager o=BucatarieManager.getInstance(2,comenzi);
+        System.out.println(o);
+
+
+        IPreparat paste2=f2.creeazaPreparat("Bolognese",40.0,60.90);
+        o.adaugaPreparat(paste2,1);
+
+        System.out.println(o);
+
+
 
 
 
