@@ -13,9 +13,13 @@ import ro.ase.model_test.pizzerie.clase.factory_method.FabricaPizza;
 import ro.ase.model_test.pizzerie.clase.factory_method.FabricaPreparate;
 import ro.ase.model_test.pizzerie.clase.preparate.IPreparat;
 import ro.ase.model_test.pizzerie.clase.preparate.Pizza;
+import ro.ase.model_test.spital.clase.Prototype.Reteta;
+import ro.ase.model_test.spital.clase.Singleton.ConfiguratieGlobala;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
@@ -80,33 +84,66 @@ public class Main {
 //        System.out.println(o);
 
 //          test Z1
-        ConfiguratiePC pcGaming = new BuilderConfig()
-                .setProcesor("Intel i9")
-                .setMemorieRAM(32)
-                .setPlacaVideo("RTX 4090")
-                .setRacireLichida(true)
-                .setIluminareRGB(false)
-                .build();
+//        ConfiguratiePC pcGaming = new BuilderConfig()
+//                .setProcesor("Intel i9")
+//                .setMemorieRAM(32)
+//                .setPlacaVideo("RTX 4090")
+//                .setRacireLichida(true)
+//                .setIluminareRGB(false)
+//                .build();
+//
+//        ConfiguratiePC pcOffice = new BuilderConfig()
+//                .setProcesor("AMD Ryzen 5")
+//                .setMemorieRAM(16)
+//                // restul rămân pe false/default automat
+//                .build();
+//
+//        System.out.println(pcGaming);
+//        System.out.println(pcOffice);
+//
+//        //test z2 -singleton
+//
+//        AtelierAsamblare atelierAsamblare=AtelierAsamblare.getInstanta();
+//        atelierAsamblare.adaugaPc(pcGaming);
+//        atelierAsamblare.adaugaPc(pcOffice);
+//        System.out.println(atelierAsamblare);
+//
+//        AtelierAsamblare altAtelier = AtelierAsamblare.getInstanta();
+//        System.out.println("Sunt aceleași instanțe? " + (atelierAsamblare == altAtelier));
+//        System.out.println(altAtelier.toString());
 
-        ConfiguratiePC pcOffice = new BuilderConfig()
-                .setProcesor("AMD Ryzen 5")
-                .setMemorieRAM(16)
-                // restul rămân pe false/default automat
-                .build();
+        //test x1
+        // --- Testare Singleton (1p) ---
+        ConfiguratieGlobala config = ConfiguratieGlobala.getInstanta("192.168.1.1", "v2.5", 2);
+        System.out.println("[Sistem] " + config.toString());
+        System.out.println("Server conectat cu succes!\n");
 
-        System.out.println(pcGaming);
-        System.out.println(pcOffice);
 
-        //test z2 -singleton
+        // --- Testare Prototype (3p + 1p Integrare) ---
 
-        AtelierAsamblare atelierAsamblare=AtelierAsamblare.getInstanta();
-        atelierAsamblare.adaugaPc(pcGaming);
-        atelierAsamblare.adaugaPc(pcOffice);
-        System.out.println(atelierAsamblare);
+        // 1. Creăm rețeta originală (proces costisitor)
+        Map<String, Double> ingredienteBaza = new HashMap<>();
+        ingredienteBaza.put("Substanta Activa A", 0.05);
+        ingredienteBaza.put("Stabilizator B", 0.12);
 
-        AtelierAsamblare altAtelier = AtelierAsamblare.getInstanta();
-        System.out.println("Sunt aceleași instanțe? " + (atelierAsamblare == altAtelier));
-        System.out.println(altAtelier.toString());
+        Reteta retetaEtalon = new Reteta("Sirop Calmant", ingredienteBaza);
+        System.out.println("Original: " + retetaEtalon);
+
+        // 2. Generăm două copii pentru pacienți diferiți (proces rapid de clonare)
+        Reteta copiePacient1 = (Reteta) retetaEtalon.copy();
+        Reteta copiePacient2 = (Reteta) retetaEtalon.copy();
+
+        // 3. Demonstrăm independența (modificăm o copie fără a afecta originalul)
+        copiePacient1.getListaMedicamente().put("Zahar adaugat", 2.0);
+
+        System.out.println("\n--- Rezultate după clonare și modificare ---");
+        System.out.println("Copie Pacient 1 (modificată): " + copiePacient1);
+        System.out.println("Copie Pacient 2 (nemanipulată): " + copiePacient2);
+        System.out.println("Original (intact): " + retetaEtalon);
+
+        // 4. Verificare finală Singleton
+        ConfiguratieGlobala altaConfig = ConfiguratieGlobala.getInstanta("alt_ip", "v3", 2);
+        System.out.println(altaConfig+ " Asta e o alta configuratie teoretic");
 
     }
 }

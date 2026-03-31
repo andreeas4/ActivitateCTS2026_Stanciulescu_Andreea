@@ -1,0 +1,29 @@
+Context: Se dorește implementarea unui sistem informatic pentru gestionarea resurselor dintr-un spital privat.
+
+Cerința 1 (4p)
+Spitalul are nevoie de un modul pentru gestionarea configurației globale a sistemului
+(de exemplu: adresa serverului de baze de date,
+ versiunea aplicației și setările de securitate).
+Deoarece aceste date sunt critice și trebuie să fie identice în toată aplicația,
+ sistemul trebuie să garanteze că există o
+singură instanță a clasei ConfiguratieSpital pe tot parcursul rulării programului.
+
+Indiciu tehnic: Trebuie să implementezi o clasă care să nu permită crearea
+de obiecte prin operatorul new în afara ei și să ofere un punct de acces global la instanța unică.
+
+Cerința 2 (3p)
+În cadrul laboratorului spitalului, se lucrează cu RețeteMagistrale
+ (rețete preparate pe loc). Procesul de calculare a concentrațiilor chimice pentru o astfel de rețetă
+ este foarte complex și consumă mult timp de procesare.
+Dacă un medic are nevoie de 10 exemplare identice ale aceleiași rețete pentru pacienți diferiți, sistemul
+ trebuie să permită multiplicarea primei rețete create, fără a mai trece prin procesul greoi de calculare a
+ ingredientelor de la zero.
+
+Indiciu tehnic: Trebuie să implementezi o interfață pentru copiere și o clasă concretă care să permită clonarea obiectului existent (asigurând că listele de ingrediente sunt copiate corect, nu doar referința lor).
+
+Cerința 3 (1p)
+În clasa Main, simulează:
+
+Accesarea instanței unice de configurație și afișarea unui mesaj (ex: "Server conectat").
+
+Crearea unei rețete etalon (originalul) și generarea a două copii ale acesteia folosind mecanismul de clonare.
