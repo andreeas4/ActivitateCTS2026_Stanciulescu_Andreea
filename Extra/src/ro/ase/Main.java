@@ -6,6 +6,10 @@ import ro.ase.model_test.echipamente_sportive.clase.Sportiv;
 import ro.ase.model_test.echipamente_sportive.clase.factory.ArticoleFactory;
 import ro.ase.model_test.echipamente_sportive.clase.factory.ArticoleSportive;
 import ro.ase.model_test.echipamente_sportive.clase.kit_sportiv.articole_sportive.IArticolSportiv;
+import ro.ase.model_test.smart_home.clase.IServices;
+import ro.ase.model_test.smart_home.clase.RegistruConfiguratii;
+import ro.ase.model_test.smart_home.clase.Securitate;
+import ro.ase.model_test.smart_home.clase.Temperatura;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -134,34 +138,51 @@ public class Main {
 //        ConfiguratieGlobala altaConfig = ConfiguratieGlobala.getInstanta("alt_ip", "v3", 2);
 //        System.out.println(altaConfig+ " Asta e o alta configuratie teoretic");
         //ex s1
-        ISportiv s = new Sportiv("Football", "S");
+//        ISportiv s = new Sportiv("Football", "S");
+//
+//
+//        DesignComplex prototip = new DesignComplex(s);
+//
+//
+//        DesignComplex d3 = (DesignComplex) prototip.copy();
+//        DesignComplex d4 = (DesignComplex) prototip.copy();
+//
+//        System.out.println(d3);
+//        System.out.println(d4);
+//
+//        //ex s2
+//        ArticoleFactory fabrica = new ArticoleFactory();
+//        List<IArticolSportiv> kitSportiv = new ArrayList<>();
+//
+//        // Creăm minim 4 obiecte din cel puțin 2 tipuri diferite (Cerința 1p)
+//        kitSportiv.add(fabrica.getArticol(ArticoleSportive.TRICOU, "Albastru"));
+//        kitSportiv.add(fabrica.getArticol(ArticoleSportive.TRICOU, "Alb"));
+//        kitSportiv.add(fabrica.getArticol(ArticoleSportive.SORT, "Negru"));
+//        kitSportiv.add(fabrica.getArticol(ArticoleSportive.JAMBIERE, "Albastru"));
+//
+//        // Afișăm rezultatele
+//        System.out.println("--- Componente Kit Sportiv Generate ---");
+//        for (IArticolSportiv articol : kitSportiv) {
+//            if (articol != null) {
+//                System.out.println(articol);; // Presupunând că ai metoda asta în interfață
+//            }
+//        }
 
+//        //testare registru
+//        IServices instanta= RegistruConfiguratii.getConfig("Iluminat");
+//        IServices instanta1=RegistruConfiguratii.getConfig("Temperatura");
+//        IServices instanta2=RegistruConfiguratii.getConfig("Securitate");
+//
+//        IServices instantaTest=RegistruConfiguratii.getConfig("Ceva nou");
+//        IServices instantaTest2=RegistruConfiguratii.getConfig("Temperatura");
+//
+//        instanta.detalii();
+//        instanta1.detalii();
+//        instanta2.detalii();
+//        System.out.println("TEORETIC INSTANTA NOUA:");
+//        instantaTest.detalii();
+//
+//        instantaTest2.detalii();
 
-        DesignComplex prototip = new DesignComplex(s);
-
-
-        DesignComplex d3 = (DesignComplex) prototip.copy();
-        DesignComplex d4 = (DesignComplex) prototip.copy();
-
-        System.out.println(d3);
-        System.out.println(d4);
-
-        //ex s2
-        ArticoleFactory fabrica = new ArticoleFactory();
-        List<IArticolSportiv> kitSportiv = new ArrayList<>();
-
-        // Creăm minim 4 obiecte din cel puțin 2 tipuri diferite (Cerința 1p)
-        kitSportiv.add(fabrica.getArticol(ArticoleSportive.TRICOU, "Albastru"));
-        kitSportiv.add(fabrica.getArticol(ArticoleSportive.TRICOU, "Alb"));
-        kitSportiv.add(fabrica.getArticol(ArticoleSportive.SORT, "Negru"));
-        kitSportiv.add(fabrica.getArticol(ArticoleSportive.JAMBIERE, "Albastru"));
-
-        // Afișăm rezultatele
-        System.out.println("--- Componente Kit Sportiv Generate ---");
-        for (IArticolSportiv articol : kitSportiv) {
-            if (articol != null) {
-                System.out.println(articol);; // Presupunând că ai metoda asta în interfață
-            }
-        }
     }
 }

@@ -1,0 +1,10 @@
+O aplicație de Smart Home are module separate pentru Iluminat, Temperatură și Securitate.
+Fiecare modul are nevoie de o instanță unică de configurare (ex: porturi de conexiune, parole, adrese IP).
+
+Registrul: O clasă ConfigRegistry care stochează obiecte de tip Configuration.
+
+Funcționalitate: Când ceri configurația pentru "LIGHTING", registrul verifică dacă a fost deja creată.
+ Dacă da, o returnează; dacă nu, o instanțiază o singură dată.
+
+Utilitate: Previne citirea repetată din fișierele de setări pentru fiecare bec sau senzor în parte.
+
