@@ -3,6 +3,12 @@ package ro.ase;
 import ro.ase.model_test.echipamente_sportive.clase.Prototype.DesignComplex;
 import ro.ase.model_test.echipamente_sportive.clase.ISportiv;
 import ro.ase.model_test.echipamente_sportive.clase.Sportiv;
+import ro.ase.model_test.echipamente_sportive.clase.factory.ArticoleFactory;
+import ro.ase.model_test.echipamente_sportive.clase.factory.ArticoleSportive;
+import ro.ase.model_test.echipamente_sportive.clase.kit_sportiv.articole_sportive.IArticolSportiv;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -140,6 +146,22 @@ public class Main {
         System.out.println(d3);
         System.out.println(d4);
 
+        //ex s2
+        ArticoleFactory fabrica = new ArticoleFactory();
+        List<IArticolSportiv> kitSportiv = new ArrayList<>();
 
+        // Creăm minim 4 obiecte din cel puțin 2 tipuri diferite (Cerința 1p)
+        kitSportiv.add(fabrica.getArticol(ArticoleSportive.TRICOU, "Albastru"));
+        kitSportiv.add(fabrica.getArticol(ArticoleSportive.TRICOU, "Alb"));
+        kitSportiv.add(fabrica.getArticol(ArticoleSportive.SORT, "Negru"));
+        kitSportiv.add(fabrica.getArticol(ArticoleSportive.JAMBIERE, "Albastru"));
+
+        // Afișăm rezultatele
+        System.out.println("--- Componente Kit Sportiv Generate ---");
+        for (IArticolSportiv articol : kitSportiv) {
+            if (articol != null) {
+                System.out.println(articol);; // Presupunând că ai metoda asta în interfață
+            }
+        }
     }
 }
