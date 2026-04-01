@@ -1,0 +1,14 @@
+În cadrul aplicației de gestiune a unui centru de personalizare a echipamentelor pentru echipe, se dorește
+implementarea unui modul pentru facilitarea procesului de imprimare a design-ului pe tricouri. Crearea unui obiect
+de tip DesignComplex
+este un proces consumator de resurse (timp de randare grafică), întrucât sunt necesare specificații tehnice de
+la producătorii de materiale, iar dimensiunile graficii diferă de la un sport la altul. Unicitatea dimensiunilor
+este reprezentată de tipul sportului alături de mărimea echipamentului (S, M, L etc.). Constatându-se faptul că centrul
+gestionează de multe ori comenzi pentru mărimi și sporturi identice, să se orienteze implementarea modulului în scopul
+optimizării timpului alocat creării specificațiilor necesare unui DesignComplex. Crearea unui design primește ca parametru
+ un obiect de tipul unei clase care implementează interfața ISportiv.
+Consultând specificațiile producătorului, este construit obiectul de tip DesignComplex cu dimensiunile impuse.
+
+Să se testeze soluția prin crearea a cel puțin patru obiecte de tip DesignComplex prin intermediul modulului
+implementat (demonstrând clonarea pentru configurații identice).
+

@@ -1,25 +1,8 @@
 package ro.ase;
 
-import ro.ase.ex_stb.ex_builder.builder.BuilderAutobuzLinie;
-import ro.ase.ex_stb.ex_builder.clase.AutobuzLinie;
-import ro.ase.ex_stb.ex_factory.mijloace_de_transport.Autobuz;
-import ro.ase.model_test.magazin_it.clase.AtelierAsamblare;
-import ro.ase.model_test.magazin_it.clase.builder.BuilderConfig;
-import ro.ase.model_test.magazin_it.clase.pc_uri.ConfiguratiePC;
-import ro.ase.model_test.pizzerie.clase.bucatarie.BucatarieManager;
-import ro.ase.model_test.pizzerie.clase.bucatarie.Comanda;
-import ro.ase.model_test.pizzerie.clase.factory_method.FabricaPaste;
-import ro.ase.model_test.pizzerie.clase.factory_method.FabricaPizza;
-import ro.ase.model_test.pizzerie.clase.factory_method.FabricaPreparate;
-import ro.ase.model_test.pizzerie.clase.preparate.IPreparat;
-import ro.ase.model_test.pizzerie.clase.preparate.Pizza;
-import ro.ase.model_test.spital.clase.Prototype.Reteta;
-import ro.ase.model_test.spital.clase.Singleton.ConfiguratieGlobala;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import ro.ase.model_test.echipamente_sportive.clase.Prototype.DesignComplex;
+import ro.ase.model_test.echipamente_sportive.clase.ISportiv;
+import ro.ase.model_test.echipamente_sportive.clase.Sportiv;
 
 public class Main {
     public static void main(String[] args) {
@@ -112,38 +95,51 @@ public class Main {
 //        System.out.println("Sunt aceleași instanțe? " + (atelierAsamblare == altAtelier));
 //        System.out.println(altAtelier.toString());
 
-        //test x1
-        // --- Testare Singleton (1p) ---
-        ConfiguratieGlobala config = ConfiguratieGlobala.getInstanta("192.168.1.1", "v2.5", 2);
-        System.out.println("[Sistem] " + config.toString());
-        System.out.println("Server conectat cu succes!\n");
+//        //test x1
+//        // --- Testare Singleton (1p) ---
+//        ConfiguratieGlobala config = ConfiguratieGlobala.getInstanta("192.168.1.1", "v2.5", 2);
+//        System.out.println("[Sistem] " + config.toString());
+//        System.out.println("Server conectat cu succes!\n");
+//
+//
+//        // --- Testare Prototype (3p + 1p Integrare) ---
+//
+//        // 1. Creăm rețeta originală (proces costisitor)
+//        Map<String, Double> ingredienteBaza = new HashMap<>();
+//        ingredienteBaza.put("Substanta Activa A", 0.05);
+//        ingredienteBaza.put("Stabilizator B", 0.12);
+//
+//        Reteta retetaEtalon = new Reteta("Sirop Calmant", ingredienteBaza);
+//        System.out.println("Original: " + retetaEtalon);
+//
+//        // 2. Generăm două copii pentru pacienți diferiți (proces rapid de clonare)
+//        Reteta copiePacient1 = (Reteta) retetaEtalon.copy();
+//        Reteta copiePacient2 = (Reteta) retetaEtalon.copy();
+//
+//        // 3. Demonstrăm independența (modificăm o copie fără a afecta originalul)
+//        copiePacient1.getListaMedicamente().put("Zahar adaugat", 2.0);
+//
+//        System.out.println("\n--- Rezultate după clonare și modificare ---");
+//        System.out.println("Copie Pacient 1 (modificată): " + copiePacient1);
+//        System.out.println("Copie Pacient 2 (nemanipulată): " + copiePacient2);
+//        System.out.println("Original (intact): " + retetaEtalon);
+//
+//        // 4. Verificare finală Singleton
+//        ConfiguratieGlobala altaConfig = ConfiguratieGlobala.getInstanta("alt_ip", "v3", 2);
+//        System.out.println(altaConfig+ " Asta e o alta configuratie teoretic");
+        //ex s1
+        ISportiv s = new Sportiv("Football", "S");
 
 
-        // --- Testare Prototype (3p + 1p Integrare) ---
+        DesignComplex prototip = new DesignComplex(s);
 
-        // 1. Creăm rețeta originală (proces costisitor)
-        Map<String, Double> ingredienteBaza = new HashMap<>();
-        ingredienteBaza.put("Substanta Activa A", 0.05);
-        ingredienteBaza.put("Stabilizator B", 0.12);
 
-        Reteta retetaEtalon = new Reteta("Sirop Calmant", ingredienteBaza);
-        System.out.println("Original: " + retetaEtalon);
+        DesignComplex d3 = (DesignComplex) prototip.copy();
+        DesignComplex d4 = (DesignComplex) prototip.copy();
 
-        // 2. Generăm două copii pentru pacienți diferiți (proces rapid de clonare)
-        Reteta copiePacient1 = (Reteta) retetaEtalon.copy();
-        Reteta copiePacient2 = (Reteta) retetaEtalon.copy();
+        System.out.println(d3);
+        System.out.println(d4);
 
-        // 3. Demonstrăm independența (modificăm o copie fără a afecta originalul)
-        copiePacient1.getListaMedicamente().put("Zahar adaugat", 2.0);
-
-        System.out.println("\n--- Rezultate după clonare și modificare ---");
-        System.out.println("Copie Pacient 1 (modificată): " + copiePacient1);
-        System.out.println("Copie Pacient 2 (nemanipulată): " + copiePacient2);
-        System.out.println("Original (intact): " + retetaEtalon);
-
-        // 4. Verificare finală Singleton
-        ConfiguratieGlobala altaConfig = ConfiguratieGlobala.getInstanta("alt_ip", "v3", 2);
-        System.out.println(altaConfig+ " Asta e o alta configuratie teoretic");
 
     }
 }

@@ -1,0 +1,8 @@
+3p. În cadrul aceleiași aplicații, angajații trebuie să creeze obiecte pentru componentele kit-ului sportiv:
+ Tricou, Sort, Jambiere, Trening etc. Pentru fiecare tip de componentă este folosită o clasă aferentă componentei
+ respective care implementează interfața IArticolSportiv. Să se implementeze modulul  care îi va ajuta pe
+  managerii de producție în procesul de creare a obiectelor din familia articolelor sportive, fără a cupla logica de business
+  de clasele concrete.
+
+1p. Să se testeze soluția prin crearea a cel puțin patru obiecte din cel puțin două tipuri diferite din familia articolelor
+sportive.
