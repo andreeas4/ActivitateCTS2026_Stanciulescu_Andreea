@@ -1,8 +1,7 @@
 package ro.ase.cts.readers;
 
-import ro.ase.cts.clase.Angajat;
-import ro.ase.cts.clase.Aplicant;
-import ro.ase.cts.clase.Student;
+import ro.ase.cts.decoratorEx.Angajat;
+import ro.ase.cts.decoratorEx.Aplicant;
 
 import java.io.File;
 import java.io.FileNotFoundException;

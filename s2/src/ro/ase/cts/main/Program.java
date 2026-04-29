@@ -1,7 +1,6 @@
 package ro.ase.cts.main;
 
-import ro.ase.cts.clase.Angajat;
-import ro.ase.cts.clase.Aplicant;
+import ro.ase.cts.decoratorEx.Aplicant;
 import ro.ase.cts.readers.AplicantiReader;
 import ro.ase.cts.readers.EmployersReader;
 
