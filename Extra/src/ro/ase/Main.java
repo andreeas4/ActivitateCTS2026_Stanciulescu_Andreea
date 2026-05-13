@@ -7,6 +7,9 @@ import ro.ase.ex_stb.ex_facade.clase.UsaFata;
 import ro.ase.ex_stb.ex_facade.clase.UsaMijloc;
 import ro.ase.ex_stb.ex_facade.clase.UsaSpate;
 import ro.ase.ex_stb.ex_facade.facade.ModulUsi;
+import ro.ase.ex_stb.ex_proxy.clase.Bus;
+import ro.ase.ex_stb.ex_proxy.clase.IOprire;
+import ro.ase.ex_stb.ex_proxy.proxy.ProxyOprire;
 import ro.ase.model_test.echipamente_sportive.clase.Prototype.DesignComplex;
 import ro.ase.model_test.echipamente_sportive.clase.ISportiv;
 import ro.ase.model_test.echipamente_sportive.clase.Sportiv;
@@ -225,5 +228,19 @@ public class Main {
 //        flotaGenerala.afiseazaDetalii();
 //
 //        System.out.println("Total locuri flotă: " + flotaGenerala.getNrLocuri());
+
+
+//        PROXY
+
+        Bus bus=new Bus(true);
+        IOprire proxy=new ProxyOprire(bus);
+
+        proxy.opreste();
+
+        Bus bus2=new Bus(false);
+
+        IOprire proxy2=new ProxyOprire(bus2);
+        proxy2.opreste();
+
     }
 }
