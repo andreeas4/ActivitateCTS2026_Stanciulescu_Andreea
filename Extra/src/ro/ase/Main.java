@@ -6,10 +6,18 @@ import ro.ase.ex_restaurant.ex_command.command.ComandaOcupa;
 import ro.ase.ex_restaurant.ex_command.command.ComandaRezerva;
 import ro.ase.ex_restaurant.ex_command.command.ICommand;
 import ro.ase.ex_restaurant.ex_command.command.Operator;
+import ro.ase.ex_restaurant.ex_observer.clase.Client;
+import ro.ase.ex_restaurant.ex_observer.clase.IObserver;
+import ro.ase.ex_restaurant.ex_observer.clase.Restaurant;
+import ro.ase.ex_restaurant.ex_observer.observer.INotificare;
+import ro.ase.ex_restaurant.ex_observer.observer.NotificareOferta;
 import ro.ase.ex_spital.ex_decorator.clase.IRezultate;
 import ro.ase.ex_spital.ex_decorator.clase.Rezultate;
 import ro.ase.ex_spital.ex_decorator.decorator.Decorator;
 import ro.ase.ex_spital.ex_decorator.decorator.DecoratorOnline;
+import ro.ase.ex_spital.ex_strategy.clase.IPlata;
+import ro.ase.ex_spital.ex_strategy.clase.PlataCard;
+import ro.ase.ex_spital.ex_strategy.strategy.Pacient;
 import ro.ase.ex_stb.ex_composite.clase.IAutobuz;
 import ro.ase.ex_stb.ex_composite.composite.GrupAutobuze;
 import ro.ase.ex_stb.ex_facade.clase.UsaFata;
@@ -206,7 +214,8 @@ public class Main {
 //        instantaTest.detalii();
 //
 //        instantaTest2.detalii();
-//FACADE
+
+//         FACADE
 //        UsaSpate usaSpate=new UsaSpate();
 //        UsaFata usaFata =new UsaFata();
 //        UsaMijloc usaMijloc=new UsaMijloc();
@@ -278,6 +287,26 @@ public class Main {
 //        Operator operator=new Operator();
 //        operator.primesteComanda(comanda);
 //        operator.primesteComanda(comanda2);
-//        operator.executaComenzi();
+//        operator.executaComenzi()
+
+
+//        //STRATEGY
+//        IPlata c=new PlataCard();
+//        Pacient pacient=new Pacient("Marian",200,c);
+//        pacient.plateste();
+//
+        //OBSERVER
+        Restaurant restaurant = new Restaurant();
+        IObserver c1 = new Client("Marian");
+        IObserver c2 = new Client("Elena");
+
+        restaurant.aboneazaClient(c1);
+        restaurant.aboneazaClient(c2);
+
+        INotificare notificare=new NotificareOferta();
+// Simulam evenimentele
+        restaurant.trimiteNotificare(notificare);
+        restaurant.dezaboneazaClient(c1);
+        restaurant.trimiteNotificare(notificare);
     }
 }
