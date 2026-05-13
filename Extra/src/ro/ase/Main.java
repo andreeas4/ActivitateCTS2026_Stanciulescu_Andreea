@@ -1,5 +1,12 @@
 package ro.ase;
 
+import ro.ase.ex_stb.ex_composite.clase.Autobuz;
+import ro.ase.ex_stb.ex_composite.clase.IAutobuz;
+import ro.ase.ex_stb.ex_composite.composite.GrupAutobuze;
+import ro.ase.ex_stb.ex_facade.clase.UsaFata;
+import ro.ase.ex_stb.ex_facade.clase.UsaMijloc;
+import ro.ase.ex_stb.ex_facade.clase.UsaSpate;
+import ro.ase.ex_stb.ex_facade.facade.ModulUsi;
 import ro.ase.model_test.echipamente_sportive.clase.Prototype.DesignComplex;
 import ro.ase.model_test.echipamente_sportive.clase.ISportiv;
 import ro.ase.model_test.echipamente_sportive.clase.Sportiv;
@@ -12,6 +19,7 @@ import ro.ase.model_test.smart_home.clase.Securitate;
 import ro.ase.model_test.smart_home.clase.Temperatura;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
@@ -183,6 +191,39 @@ public class Main {
 //        instantaTest.detalii();
 //
 //        instantaTest2.detalii();
-
+//FACADE
+//        UsaSpate usaSpate=new UsaSpate();
+//        UsaFata usaFata =new UsaFata();
+//        UsaMijloc usaMijloc=new UsaMijloc();
+//
+//        ModulUsi usi=new ModulUsi(usaFata,usaMijloc,usaSpate);
+//
+//        usi.dechideUsiFortat();
+//        usi.seteazaModLiberUsi();
+//
+         //COMPOSITE
+//        IAutobuz a1 = new Autobuz("Mercedes", "M3", 28);
+//        IAutobuz a2 = new Autobuz("Mercedes", "M3", 19);
+//        IAutobuz a3 = new Autobuz("Mercedes", "M3", 18);
+//
+//
+//        GrupAutobuze grupMici = new GrupAutobuze("Grup Mici", new ArrayList<>());
+//        GrupAutobuze flotaGenerala = new GrupAutobuze("Flota Bucuresti", new ArrayList<>());
+//
+//        List<IAutobuz> inventar = Arrays.asList(a1, a2, a3);
+//        for(IAutobuz auto : inventar) {
+//            if(auto.getNrLocuri() < 20) {
+//                grupMici.adaugaAutobuz(auto);
+//            }
+//        }
+//
+//
+//        flotaGenerala.adaugaAutobuz(grupMici);
+//        flotaGenerala.adaugaAutobuz(a1); // Adăugăm și un autobuz mare direct în flotă
+//
+//
+//        flotaGenerala.afiseazaDetalii();
+//
+//        System.out.println("Total locuri flotă: " + flotaGenerala.getNrLocuri());
     }
 }
