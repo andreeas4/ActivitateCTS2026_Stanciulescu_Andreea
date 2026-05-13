@@ -1,6 +1,10 @@
 package ro.ase;
 
 //import ro.ase.ex_stb.ex_composite.clase.Autobuz;
+import ro.ase.ex_spital.ex_decorator.clase.IRezultate;
+import ro.ase.ex_spital.ex_decorator.clase.Rezultate;
+import ro.ase.ex_spital.ex_decorator.decorator.Decorator;
+import ro.ase.ex_spital.ex_decorator.decorator.DecoratorOnline;
 import ro.ase.ex_stb.ex_composite.clase.IAutobuz;
 import ro.ase.ex_stb.ex_composite.composite.GrupAutobuze;
 import ro.ase.ex_stb.ex_facade.clase.UsaFata;
@@ -247,12 +251,17 @@ public class Main {
 
         //Flyweight
 
-        Autobuz a=new Autobuz("Mercedes",2020,34,"B456fre");
-        ILinie linie=new LinieAutobuz(3,"Marrie Currie","Capitanu George");
-        FabricaFlyweight flyweight=new FabricaFlyweight();
-        flyweight.getLinie(3).afiseazaDetalii(a);
+//        Autobuz a=new Autobuz("Mercedes",2020,34,"B456fre");
+//        ILinie linie=new LinieAutobuz(3,"Marrie Currie","Capitanu George");
+//        FabricaFlyweight flyweight=new FabricaFlyweight();
+//        flyweight.getLinie(3).afiseazaDetalii(a);
 
+        //decorator
 
+//        IRezultate rezultate=new Rezultate();
+//        rezultate.printeaza();
+//        Decorator rezultateDecorate=new DecoratorOnline(rezultate);
+//        rezultateDecorate.printeaza();
 
 
     }
