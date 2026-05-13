@@ -1,6 +1,11 @@
 package ro.ase;
 
 //import ro.ase.ex_stb.ex_composite.clase.Autobuz;
+import ro.ase.ex_restaurant.ex_command.clase.Masa;
+import ro.ase.ex_restaurant.ex_command.command.ComandaOcupa;
+import ro.ase.ex_restaurant.ex_command.command.ComandaRezerva;
+import ro.ase.ex_restaurant.ex_command.command.ICommand;
+import ro.ase.ex_restaurant.ex_command.command.Operator;
 import ro.ase.ex_spital.ex_decorator.clase.IRezultate;
 import ro.ase.ex_spital.ex_decorator.clase.Rezultate;
 import ro.ase.ex_spital.ex_decorator.decorator.Decorator;
@@ -263,6 +268,16 @@ public class Main {
 //        Decorator rezultateDecorate=new DecoratorOnline(rezultate);
 //        rezultateDecorate.printeaza();
 
-
+        //command
+//
+//        Masa masaTrbRezervata=new Masa(1);
+//        Masa masaOcupata=new Masa(2);
+//        ICommand comanda=new ComandaRezerva(masaTrbRezervata);
+//        ICommand comanda2=new ComandaOcupa(masaOcupata);
+//
+//        Operator operator=new Operator();
+//        operator.primesteComanda(comanda);
+//        operator.primesteComanda(comanda2);
+//        operator.executaComenzi();
     }
 }
