@@ -1,12 +1,15 @@
 package ro.ase;
 
-import ro.ase.ex_stb.ex_composite.clase.Autobuz;
+//import ro.ase.ex_stb.ex_composite.clase.Autobuz;
 import ro.ase.ex_stb.ex_composite.clase.IAutobuz;
 import ro.ase.ex_stb.ex_composite.composite.GrupAutobuze;
 import ro.ase.ex_stb.ex_facade.clase.UsaFata;
 import ro.ase.ex_stb.ex_facade.clase.UsaMijloc;
 import ro.ase.ex_stb.ex_facade.clase.UsaSpate;
 import ro.ase.ex_stb.ex_facade.facade.ModulUsi;
+import ro.ase.ex_stb.ex_flyweight.clase.ILinie;
+import ro.ase.ex_stb.ex_flyweight.clase.LinieAutobuz;
+import ro.ase.ex_stb.ex_flyweight.flyweight.FabricaFlyweight;
 import ro.ase.ex_stb.ex_proxy.clase.Bus;
 import ro.ase.ex_stb.ex_proxy.clase.IOprire;
 import ro.ase.ex_stb.ex_proxy.proxy.ProxyOprire;
@@ -20,7 +23,7 @@ import ro.ase.model_test.smart_home.clase.IServices;
 import ro.ase.model_test.smart_home.clase.RegistruConfiguratii;
 import ro.ase.model_test.smart_home.clase.Securitate;
 import ro.ase.model_test.smart_home.clase.Temperatura;
-
+import ro.ase.ex_stb.ex_flyweight.clase.Autobuz;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -231,16 +234,26 @@ public class Main {
 
 
 //        PROXY
+//
+//        Bus bus=new Bus(true);
+//        IOprire proxy=new ProxyOprire(bus);
+//
+//        proxy.opreste();
+//
+//        Bus bus2=new Bus(false);
+//
+//        IOprire proxy2=new ProxyOprire(bus2);
+//        proxy2.opreste();
 
-        Bus bus=new Bus(true);
-        IOprire proxy=new ProxyOprire(bus);
+        //Flyweight
 
-        proxy.opreste();
+        Autobuz a=new Autobuz("Mercedes",2020,34,"B456fre");
+        ILinie linie=new LinieAutobuz(3,"Marrie Currie","Capitanu George");
+        FabricaFlyweight flyweight=new FabricaFlyweight();
+        flyweight.getLinie(3).afiseazaDetalii(a);
 
-        Bus bus2=new Bus(false);
 
-        IOprire proxy2=new ProxyOprire(bus2);
-        proxy2.opreste();
+
 
     }
 }
