@@ -1,12 +1,15 @@
 package ro.ase;
 
 //import ro.ase.ex_stb.ex_composite.clase.Autobuz;
+import ro.ase.ex_restaurant.ex_chain_of_responsability.chain.Handler;
+import ro.ase.ex_restaurant.ex_chain_of_responsability.chain.HandlerMail;
+import ro.ase.ex_restaurant.ex_chain_of_responsability.chain.HandlerSMS;
+import ro.ase.ex_restaurant.ex_chain_of_responsability.clase.Client;
 import ro.ase.ex_restaurant.ex_command.clase.Masa;
 import ro.ase.ex_restaurant.ex_command.command.ComandaOcupa;
 import ro.ase.ex_restaurant.ex_command.command.ComandaRezerva;
 import ro.ase.ex_restaurant.ex_command.command.ICommand;
 import ro.ase.ex_restaurant.ex_command.command.Operator;
-import ro.ase.ex_restaurant.ex_observer.clase.Client;
 import ro.ase.ex_restaurant.ex_observer.clase.IObserver;
 import ro.ase.ex_restaurant.ex_observer.clase.Restaurant;
 import ro.ase.ex_restaurant.ex_observer.observer.INotificare;
@@ -295,18 +298,35 @@ public class Main {
 //        Pacient pacient=new Pacient("Marian",200,c);
 //        pacient.plateste();
 //
-        //OBSERVER
-        Restaurant restaurant = new Restaurant();
-        IObserver c1 = new Client("Marian");
-        IObserver c2 = new Client("Elena");
+//        //OBSERVER
+//        Restaurant restaurant = new Restaurant();
+//        IObserver c1 = new Client("Marian");
+//        IObserver c2 = new Client("Elena");
+//
+//        restaurant.aboneazaClient(c1);
+//        restaurant.aboneazaClient(c2);
+//
+//        INotificare notificare=new NotificareOferta();
+//// Simulam evenimentele
+//        restaurant.trimiteNotificare(notificare);
+//        restaurant.dezaboneazaClient(c1);
+//        restaurant.trimiteNotificare(notificare);
 
-        restaurant.aboneazaClient(c1);
-        restaurant.aboneazaClient(c2);
 
-        INotificare notificare=new NotificareOferta();
-// Simulam evenimentele
-        restaurant.trimiteNotificare(notificare);
-        restaurant.dezaboneazaClient(c1);
-        restaurant.trimiteNotificare(notificare);
+        //chain of responsability
+
+        Client c=new Client("Mihai","0373849","");
+        Client c1=new Client("Ioana","","sefs@fdh.uo");
+
+        Handler handlerMail=new HandlerMail();
+        Handler handlerSms=new HandlerSMS();
+
+        handlerSms.setSuccestor(handlerMail);
+
+        handlerSms.notifica(c,"Oferta noua la clatite");
+        handlerSms.notifica(c1,"Oferta noua la macaroane");
+
+
+
     }
 }
